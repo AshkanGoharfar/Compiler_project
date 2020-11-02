@@ -39,7 +39,7 @@ class LexerAnalyzer:
     # Check for correct IDs
 
     def t_ID(self, t):
-        r'[a-z_]([a-zA-Z0-9_])*'
+        r"""[a-zA-Z\x80-\xff_][a-zA-Z0-9\x80-\xff_]*"""
         if t.value in reserved:
             t.type = reserved[t.value]
         return t
@@ -56,21 +56,23 @@ class LexerAnalyzer:
 
     # ERROR
     def t_ERROR(self, t):
-        r"""([0-9A-Z]([0-9]*[a-zA-Z_][0-9]*)+)
-        | ([A-Z][0-9a-zA-Z_]*)
-        | (\.[0-9]+)
-        | (([0-9]+\.[0-9]+\.)[0-9\.]*)
-        | (0*((?=[0-9]{11,}\.)(([1-9]+0*)+|0)\.((0*[1-9]+)+|0))0*)
-        | (0*[1-9][0-9]{10,})
-        | ([/%\-\*\+]\s*([/%\-\*\+]\s*)+)
-        """
+        r"""([0-9]+[a-zA-Z_]+)
+            |([\*\+\-\%\/][\s]*[\*\+\-\%\/][\*\+\-\%\/ ]*)
+            |([\w\d]*(\.[\w\d]*){2,})
+            """
+        t.type = 'ERROR'
         return t
 
     # Check is float or not
     def t_FLOATNUMBER(self, t):
-        r'0*((([1-9]+0*)+|0)\.((0*[1-9]+)+|0))0*'
-        t.value = float(t.value)
-        return t
+        r"""\d+\.\d+"""
+        before, after = str(t.value).split('.')
+        if len(before) >= 10:
+            t.type = 'ERROR'
+            return t
+        else:
+            t.value = float(t.value)
+            return t
 
     # Check is integer or not
     def t_INTEGERNUMBER(self, t):
