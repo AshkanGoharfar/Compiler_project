@@ -2,7 +2,7 @@ from Lexical_analyzer import LexerAnalyzer
 
 lexerAnalyzer = LexerAnalyzer()
 lexer_builder = lexerAnalyzer.build()
-input = open("test3.txt")
+input = open("test1.txt")
 text_input = input.read()
 input.close()
 output = open("output1.txt", "w")
