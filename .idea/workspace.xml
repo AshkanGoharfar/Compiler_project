@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5877786-60d5-40c9-826e-6839df525bed" name="Default Changelist" comment="lexer analyzer">
+    <list default="true" id="b5877786-60d5-40c9-826e-6839df525bed" name="Default Changelist" comment="Implemented parser">
+      <change afterPath="$PROJECT_DIR$/Parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lexical_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lexical_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reserved.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reserved.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/Run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test1.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,7 @@
       <updated>1604326727671</updated>
       <workItem from="1604326728918" duration="4269000" />
       <workItem from="1604417541706" duration="1310000" />
-      <workItem from="1606315904123" duration="489000" />
+      <workItem from="1606315904123" duration="4717000" />
     </task>
     <task id="LOCAL-00001" summary="Just for reserved">
       <created>1604330618447</created>
@@ -112,7 +111,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604331656073</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implemented lexer analyzer">
+      <created>1606316411608</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606316411608</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Run lexical analyzer">
+      <created>1606316468324</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606316468324</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,33 +136,36 @@
     <MESSAGE value="Lexer analyzer" />
     <MESSAGE value="Main code for lexer analyzer" />
     <MESSAGE value="lexer analyzer" />
-    <option name="LAST_COMMIT_MESSAGE" value="lexer analyzer" />
+    <MESSAGE value="Implemented lexer analyzer" />
+    <MESSAGE value="Defined reserved words" />
+    <MESSAGE value="Run lexical analyzer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Run lexical analyzer" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="203" y="0" key="CommitChangelistDialog2" timestamp="1606316442289">
+    <state x="203" y="0" key="CommitChangelistDialog2" timestamp="1606318531952">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="203" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1606316442289" />
+    <state x="203" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1606318531952" />
     <state x="421" y="82" key="FileChooserDialogImpl" timestamp="1604421559735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1604421559735" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1606316338369">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1606321017661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606316338369" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1606316338369">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606321017661" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1606321017661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1606316338369" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1606316338369">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1606321017661" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1606321017661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1606316338369" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1606316338369">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1606321017661" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1606321017661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606316338369" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606321017661" />
     <state x="337" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1604417594828">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -164,6 +180,6 @@
     <state x="471" y="131" key="svn.repositoryBrowser/0.0.1280.680@0.0.1280.680" timestamp="1604330634224" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Compiler_project$Run.coverage" NAME="Run Coverage Results" MODIFIED="1606316338361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Compiler_project$Run.coverage" NAME="Run Coverage Results" MODIFIED="1606321017653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

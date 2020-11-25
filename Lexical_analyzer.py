@@ -29,13 +29,12 @@ class LexerAnalyzer:
 
     # Tokens
     tokens = [
-        'ID', 'INTEGERNUMBER', 'FLOATNUMBER', 'INTEGER', 'FLOAT', 'BOOLEAN', 'FUNCTION',
+        'ID', 'INTEGER', 'FLOAT', 'BOOLEAN', 'FUNCTION',
         'TRUE', 'FALSE', 'PRINT', 'RETURN', 'MAIN', 'IF', 'ELSE', 'ELSEIF', 'WHILE', 'ON',
         'WHERE', 'FOR', 'AND', 'OR', 'NOT', 'IN', 'ASSIGN', 'SUM', 'SUB', 'MUL', 'DIV',
         'MOD', 'GT', 'GE', 'LT', 'LE', 'EQ', 'NE', 'LCB', 'RCB', 'LRB', 'RRB', 'LSB', 'RSB',
         'SEMICOLON', 'COLON', 'COMMA', 'ERROR'
     ]
-
 
     def t_ID(self, t):
         r"""[a-zA-Z\x80-\xff_][a-zA-Z0-9\x80-\xff_]*"""
@@ -60,7 +59,7 @@ class LexerAnalyzer:
         t.type = 'ERROR'
         return t
 
-    def t_FLOATNUMBER(self, t):
+    def t_FLOAT(self, t):
         r"""\d+\.\d+"""
         before, after = str(t.value).split('.')
         if len(before) >= 10:
@@ -70,7 +69,7 @@ class LexerAnalyzer:
             t.value = float(t.value)
             return t
 
-    def t_INTEGERNUMBER(self, t):
+    def t_INTEGER(self, t):
         r"""[0-9]+"""
         p = int(t.value)
         t.value = int(t.value)
@@ -90,3 +89,6 @@ class LexerAnalyzer:
     def build(self, **kwargs):
         self.lexer = lex.lex(module=self, **kwargs)
         return self.lexer
+
+    # if there is shoft reduce in grammar it means our grammar is ambigiuose
+    # else if there is reduce reduce it means our grammar has error
