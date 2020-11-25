@@ -20,5 +20,5 @@ reserved = {
     'or': 'OR',
     'not': 'NOT',
     'in': 'IN',
-    'void': 'VOID'
+    'Error': 'ERROR'
 }

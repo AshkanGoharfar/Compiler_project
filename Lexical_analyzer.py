@@ -33,10 +33,9 @@ class LexerAnalyzer:
         'TRUE', 'FALSE', 'PRINT', 'RETURN', 'MAIN', 'IF', 'ELSE', 'ELSEIF', 'WHILE', 'ON',
         'WHERE', 'FOR', 'AND', 'OR', 'NOT', 'IN', 'ASSIGN', 'SUM', 'SUB', 'MUL', 'DIV',
         'MOD', 'GT', 'GE', 'LT', 'LE', 'EQ', 'NE', 'LCB', 'RCB', 'LRB', 'RRB', 'LSB', 'RSB',
-        'SEMICOLON', 'COLON', 'COMMA', 'ERROR', 'VOID'
+        'SEMICOLON', 'COLON', 'COMMA', 'ERROR'
     ]
 
-    # Check for correct IDs
 
     def t_ID(self, t):
         r"""[a-zA-Z\x80-\xff_][a-zA-Z0-9\x80-\xff_]*"""
@@ -44,26 +43,23 @@ class LexerAnalyzer:
             t.type = reserved[t.value]
         return t
 
-    # Check is True or not
     def t_TRUE(self, t):
         r'True'
         return t
 
-    # Check is False or not
     def t_FALSE(self, t):
         r'False'
         return t
 
-    # ERROR
     def t_ERROR(self, t):
         r"""([0-9]+[a-zA-Z_]+)
+            |([A-Z]+[0-9a-zA-Z_]+)
             |([\*\+\-\%\/][\s]*[\*\+\-\%\/][\*\+\-\%\/ ]*)
             |([\w\d]*(\.[\w\d]*){2,})
             """
         t.type = 'ERROR'
         return t
 
-    # Check is float or not
     def t_FLOATNUMBER(self, t):
         r"""\d+\.\d+"""
         before, after = str(t.value).split('.')
@@ -74,7 +70,6 @@ class LexerAnalyzer:
             t.value = float(t.value)
             return t
 
-    # Check is integer or not
     def t_INTEGERNUMBER(self, t):
         r"""[0-9]+"""
         p = int(t.value)
@@ -85,7 +80,6 @@ class LexerAnalyzer:
         else:
             return t
 
-    # go to next line
     def t_newline(self, t):
         r"""\n+"""
         t.lexer.lineno += len(t.value)
